@@ -1,0 +1,41 @@
+.details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.task-desc{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    box-shadow: inset;
+    border-radius: 10px;
+}
+.details h2{
+    margin-bottom: 20px;
+}
+.details p{
+    margin: 20px;
+}
+.cta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.cta button{
+    margin: 0 auto;
+}
+.cta button:nth-child(2){
+    background: #dc143c;
+}
+@media screen and (max-width: 600px) {
+    .task-desc{
+        width: 95%;
+    }
+}

@@ -1,0 +1,40 @@
+.category{
+    width: 100%;
+}
+.content{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.cat-box{
+    border-radius: 10px;
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    padding: 5px 8px;
+}
+.cat-box h3{
+    font-size: 1rem;
+}
+.cat-box.active{
+    background: #1e90ff;
+    transform: scale(1.07);
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3)
+}
+.cat-box.active h3{
+    color: #fff;
+}
+@media screen and (max-width: 600px) {
+    .content{
+        width: 95%;
+    }
+    .cat-box{
+        width: 80px;
+    }
+    .cat-box h3{
+        font-size: .8rem;
+    }
+}

@@ -1,0 +1,117 @@
+.home{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+.navigation{
+    width: 100%;
+    height: 70px;
+    background: #fff;
+}
+.nav-icons{
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.nav-icons .fa{
+    cursor: pointer;
+    transition: color .2s;
+}
+.nav-icons a{
+    color: black;
+}
+.nav-icons .fa:hover{
+    color: #87cefa;
+}
+/* .fa-plus{
+    position: absolute;
+    background: #1e90ff;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+} */
+.welcome-msg{
+    width: 70%;
+    height: 200px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #87cefa 40%, #1e90ff);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+}
+.header h2{
+    margin-bottom: 10px;
+}
+.todo-wrapper{
+    width: 70%;
+    margin: 20px auto;
+}
+.todo-list{
+    width: 90%;
+    margin: 20px auto;
+}
+.todo-list a{
+    color: #87cefa;
+    padding-right: 10px;
+}
+.fa-trash{
+    color: #dc143c;
+}
+.todos{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, .2);
+    margin: 10px 0;
+}
+.action{
+    margin-right: 15px;
+}
+.action .fa{
+    margin: 0 5px;
+    cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+    .navigation{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        box-shadow:0 2px 5px rgba(0, 0, 0, .2);
+    }
+    .welcome-msg, .todo-wrapper{
+        width: 90%;
+    }
+    .nav-icons{
+        width: 90%;
+        justify-content: space-between;
+    }
+    .fa-plus{
+        border-radius: 50%;
+        background: #1e90ff;
+        padding: 15px;
+        box-shadow:0 2px 8px rgba(0, 0, 0, .2);
+        color: #fff;
+    }
+    .todo-list{
+        width: 97%;
+        margin-bottom: 70px;
+        border: #fff 1px solid;
+    }
+    .todos h2{
+        font-size: 1rem;
+    }
+    .todos p{
+        font-size: .8rem;
+    }
+}
