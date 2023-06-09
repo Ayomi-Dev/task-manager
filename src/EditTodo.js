@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navigation from './Navigation'
 import {v4 as uuidv4} from 'uuid'
 uuidv4()
 
 
-const EditTodo = ({ task, editTask, handleUpdatedTask, cancelEdit }) => {
+const EditTodo = ({ task, handleUpdatedTask, cancelEdit }) => {
     const [taskName, setTaskName] = useState(task.taskName)
     const [category, setCategory] = useState(task.category);
     const [date, setDate] = useState(task.date)
@@ -27,10 +26,10 @@ const EditTodo = ({ task, editTask, handleUpdatedTask, cancelEdit }) => {
             endTime: endTime, 
             description: description
         }
-        console.log(task)
+        
         handleUpdatedTask(taskValues);
 
-        // navigate('/home')
+        navigate('/home')
 
     }
 
@@ -50,7 +49,7 @@ const EditTodo = ({ task, editTask, handleUpdatedTask, cancelEdit }) => {
                     <input required
                         type="text"
                         value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}
+                        onChange={(e) => setTaskName(e.target.value.toUpperCase())}
                     />
                     </div>
 
@@ -78,7 +77,7 @@ const EditTodo = ({ task, editTask, handleUpdatedTask, cancelEdit }) => {
                     <div className="sub-info">
                         <label htmlFor="">Start Time</label>
                         <input required
-                            type="datetime"
+                            type="time"
                             value={startTime}
                             onChange={(e) => setStartTime(e.target.value)}
                         />             
@@ -86,7 +85,7 @@ const EditTodo = ({ task, editTask, handleUpdatedTask, cancelEdit }) => {
                     <div className="sub-info">
                         <label htmlFor="">End Time</label>
                         <input required
-                            type="datetime" 
+                            type="time" 
                             value={endTime}
                             onChange={(e) => setEndTime(e.target.value)}
                         />

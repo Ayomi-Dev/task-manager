@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom'
 
 
 
-const Navigation = () => {
+const Navigation = ({ tasks }) => {
+
+    const counter = tasks.length
+    
 
     return (
         <div className="navigation">
@@ -11,19 +14,20 @@ const Navigation = () => {
                     <i className="fa fa-home"></i>
                 </Link>
                 
-                <Link to='/category'>
-                    <i className="fa fa-list-check"></i>
+                
+                <Link to='/search' >
+                    <i className="fa fa-search"></i>
                 </Link>
-
-                <Link to='/create-task'>
-                    <i className="fa fa-plus"></i>
-                </Link>
-
-                <i className="fa fa-search"></i>
+                
 
                 <Link to='/'>
                     <i className="fa fa-user"></i>
                 </Link>
+
+                <div className="notification">
+                    <i className="fa fa-bell"></i>
+                    <div className="counter">{ counter }</div>
+                </div>
                     
             </div>
         </div>

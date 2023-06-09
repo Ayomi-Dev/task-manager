@@ -28,17 +28,26 @@ const TodoDetails = ({handleDelete, tasks, editTask}) => {
         setEditMode(false);
     }
 
+
+
     return (  
         <>
-            <Navigation />
+            <Navigation tasks = { tasks } />
+
             <div className="details">
 
                 {task ? (
                     editMode ? ( <EditTodo task = {task} handleUpdatedTask = { handleUpdatedTask } cancelEdit = { cancelEdit } />
                         ) :
                         <div className="task-desc" key={task.id}>
-                            <h2>{task.taskName}</h2>
-                            <p> {task.description}</p>
+                            <h2><span>{ task.taskName }</span> </h2>
+                            <p className='task-detail'><span>Description:</span> {task.description}</p>
+                            <p><span>Task Date & Time:</span> { task.date }</p>
+                            <p><span>Duration:</span> { task.startTime } - { task.endTime }</p>
+                            <p><span>Category:</span> { task.category }</p>
+                            <p><span>Date set:</span> { task.dateSet }</p>
+                            <p><span>Time set:</span> { task.timeSet }</p>
+                        
                             <div className="cta">
                                 <button onClick={ handleEdit }>Edit Task</button>
                                 <button onClick={ handleTaskDelete }>Delete Task</button>

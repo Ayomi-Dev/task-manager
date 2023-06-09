@@ -1,6 +1,6 @@
 .start-page{
   width: 100%;
-  background: linear-gradient(to bottom, #87cefa , #fff 70%);
+  background: linear-gradient(to bottom, #1e90ff , #fff 70%);
   min-height: 100dvh;
 }
 .container{
@@ -12,7 +12,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
-.contaoner img{
+.container img{
   height: 300px;
   width: 60%;
   object-fit: cover;
@@ -24,7 +24,7 @@
   text-align: center;
 }
 .welcome-text p{
-  opacity: .8;
+  opacity: .9;
 }
 .login{
   width: 100%;
@@ -40,7 +40,7 @@
   max-width: 300px;
   border-radius: 15px;
   padding: 10px;
-  color: rgba(0,0,0,.5) ;
+  color: rgba(0,0,0,1) ;
   transition: border .2s;
 }
 button{
@@ -49,14 +49,24 @@ button{
   padding: 10px 20px;
   font-size: .9rem;
   color: #fff;
-  background: #87cefa;
+  background: #1e90ff;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
+  opacity: .8;
+  transition: opacity .2s;
+}
+button:hover{
+  opacity: 1;
 }
 .login input:focus{
-  border: 1px solid #87cefa;
+  border: 1px solid #1e90ff;
 }
 .login input::placeholder{
-  color: rgba(0,0,0,.4);
+  color: rgba(0,0,0,.7);
+}
+@media screen and (max-width: 600px){
+  .container img{
+    width: 90%;
+  }
 }

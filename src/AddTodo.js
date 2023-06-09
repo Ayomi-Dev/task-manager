@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navigation from './Navigation'
+import './addTodos.css'
+
 import {v4 as uuidv4} from 'uuid'
 uuidv4()
 
@@ -12,12 +13,18 @@ const AddTodos = ({ addTask }) => {
     const [startTime, setStartTime]= useState('')
     const [endTime, setEndTime] = useState('');
     const [description, setDescription] = useState('')
+    
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        
+
+        const fullDate = new Date();
+        const dateSet = fullDate.toLocaleDateString()
+        const timeSet = fullDate.toLocaleTimeString()
+
+        //setting each task property and updating them based on user input
         const taskValues = {
             id: uuidv4(),
             taskName, 
@@ -25,22 +32,22 @@ const AddTodos = ({ addTask }) => {
             category, 
             startTime, 
             endTime, 
-            description
+            description,
+            dateSet,
+            timeSet
         }
 
+        
         addTask(taskValues);
 
         navigate('/home')
 
     }
 
-
-
+    
     return ( 
 
         <>
-            <Navigation />
-
             <div className="add-task">
                 <h2>Create New Task</h2> 
 
@@ -51,7 +58,7 @@ const AddTodos = ({ addTask }) => {
                     <input required
                         type="text"
                         value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}
+                        onChange={(e) => setTaskName(e.target.value.toUpperCase())}
                     />
                     </div>
 
@@ -98,6 +105,11 @@ const AddTodos = ({ addTask }) => {
                         <label htmlFor="">Description</label>
                         <textarea required value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
+
+                    {/* <div className="timeInfo" >
+                        <p>Time Set: { timeSet }</p>
+                        <p>Date set: { dateSet }</p>
+                    </div> */}
                 
                     <button type="submit">Add Task</button>    
                 </form>

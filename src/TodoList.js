@@ -14,6 +14,11 @@ const TodoList = ({ tasks, handleDelete }) => {
                         <p className="time">{task.startTime} - {task.endTime}</p>
                     </div>
 
+                    <div className="timeInfo" >
+                        <p> { task.timeSet } </p>
+                        <p> { task.dateSet } </p>
+                    </div>
+
                     <div className="action">
                         <Link to={`/details/${task.id}`}>
                             <i className="fa fa-pen-to-square"></i>
@@ -21,6 +26,8 @@ const TodoList = ({ tasks, handleDelete }) => {
                         
                         <i className="fa fa-trash" onClick = {()=> handleDelete(task.id)}></i>
                     </div>
+
+                    
 
                     
 

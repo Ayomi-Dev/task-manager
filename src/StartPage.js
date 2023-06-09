@@ -1,16 +1,23 @@
-import { Link } from 'react-router-dom'
-import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 
 
 
-const StartPage = ({userInput, handleSearch, tasks}) => {
+const StartPage = ({ userInput }) => {
 
     const [userName, setUserName] = useState('')
+    const navigate = useNavigate()
 
-    const handleNameInput = () => {
-        userInput(userName)
-        
+    
+    //updating username on the homepage
+    const handleNameInput = (e) => {
+        e.preventDefault();
+
+        userInput(userName);
+
+        navigate('/home');
+
     }
 
     
@@ -22,21 +29,21 @@ const StartPage = ({userInput, handleSearch, tasks}) => {
                 <img src="in.png" alt="" className="img" />
 
                 <div className="welcome-text">
-                    <h2>Welcome To Task</h2>
-                    <p>The one place to organise and track your tasks</p>
+                    <h2>Welcome To <em>Tasks.Me</em> </h2>
+                    <p>The one place to organise and track your tasks.</p>
                 </div>
 
-                <div className="login">
+                <form className="login" onSubmit={ handleNameInput }>
                     <input type="text" 
                     required
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     placeholder=" Enter your name here"
                     />
-                    <Link to='/home'>
-                        <button onClick={handleNameInput} >Get Started</button>
-                    </Link>
-                </div>
+                    
+                    <button>Get Started</button>
+                   
+                </form>
             </div>
 
         </div>
